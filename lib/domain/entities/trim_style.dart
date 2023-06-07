@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:video_editor/domain/helpers.dart';
 
 enum TrimSliderEdgesType { bar, circle }
@@ -18,6 +19,8 @@ class TrimSliderStyle {
     this.edgesType = TrimSliderEdgesType.bar,
     double? edgesSize,
     // icons
+    required this.leftIcon,
+    required this.rightIcon,
     this.iconColor = Colors.black,
     this.iconSize = 16,
   }) : edgesSize = edgesSize ?? (edgesType == TrimSliderEdgesType.bar ? 10 : 8);
@@ -83,7 +86,9 @@ class TrimSliderStyle {
   /// Defaults to `16`
   final double iconSize;
 
+  final IconData leftIcon;
+  final IconData rightIcon;
+
   /// Returns left and right line width depending on [edgesType]
-  double get edgeWidth =>
-      edgesType == TrimSliderEdgesType.bar ? edgesSize : lineWidth;
+  double get edgeWidth => edgesType == TrimSliderEdgesType.bar ? edgesSize : lineWidth;
 }

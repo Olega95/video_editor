@@ -14,6 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.6
+  icons_plus: ^3.0.0
   path: ^1.8.0
   path_provider: ^2.0.12
   transparent_image: ^2.0.1
@@ -21,7 +22,6 @@ dependencies:
   video_thumbnail: ^0.5.3
 
 dev_dependencies:
-
   flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter

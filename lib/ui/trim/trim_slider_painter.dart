@@ -283,47 +283,36 @@ class TrimSliderPainter extends CustomPainter {
     required Size size,
   }) async {
     final halfIconSize = Offset(style.iconSize / 2, style.iconSize / 2);
-    final textCentre = const Offset(0, 0);
 
     // LEFT ICON
-
-    TextPainter leftArrow = TextPainter(textDirection: TextDirection.rtl);
-    leftArrow.text = TextSpan(
-      text: String.fromCharCode(Icons.drag_handle_rounded.codePoint),
-      style: TextStyle(
-        fontSize: style.iconSize,
-        fontFamily: Icons.drag_handle_rounded.fontFamily,
-        color: style.iconColor,
-      ),
-    );
-    leftArrow.layout();
-
-    canvas.save();
-    canvas.translate(textCentre.dx, textCentre.dy);
-    canvas.rotate(90);
-    canvas.translate(-textCentre.dx, -textCentre.dy);
-    leftArrow.paint(canvas, centerLeft - halfIconSize);
-
-    canvas.restore();
+    if (style.leftIcon != null) {
+      TextPainter leftArrow = TextPainter(textDirection: TextDirection.rtl);
+      leftArrow.text = TextSpan(
+        text: String.fromCharCode(style.leftIcon!.codePoint),
+        style: TextStyle(
+          fontSize: style.iconSize,
+          fontFamily: style.leftIcon!.fontFamily,
+          color: style.iconColor,
+        ),
+      );
+      leftArrow.layout();
+      leftArrow.paint(canvas, centerLeft - halfIconSize);
+    }
 
     // RIGHT ICON
-    TextPainter rightArrow = TextPainter(textDirection: TextDirection.rtl);
-    rightArrow.text = TextSpan(
-      text: String.fromCharCode(Icons.drag_handle_rounded.codePoint),
-      style: TextStyle(
-        fontSize: style.iconSize,
-        fontFamily: Icons.drag_handle_rounded.fontFamily,
-        color: style.iconColor,
-      ),
-    );
-    rightArrow.layout();
-
-    canvas.save();
-    canvas.translate(textCentre.dx, textCentre.dy);
-    canvas.rotate(90);
-    canvas.translate(-textCentre.dx, -textCentre.dy);
-    rightArrow.paint(canvas, centerLeft - halfIconSize);
-    canvas.restore();
+    if (style.rightIcon != null) {
+      TextPainter rightArrow = TextPainter(textDirection: TextDirection.rtl);
+      rightArrow.text = TextSpan(
+        text: String.fromCharCode(style.rightIcon!.codePoint),
+        style: TextStyle(
+          fontSize: style.iconSize,
+          fontFamily: style.rightIcon!.fontFamily,
+          color: style.iconColor,
+        ),
+      );
+      rightArrow.layout();
+      rightArrow.paint(canvas, centerRight - halfIconSize);
+    }
   }
 
   @override
